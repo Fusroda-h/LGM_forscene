@@ -21,7 +21,7 @@ class MVAttention(nn.Module):
         eps: float = 1e-5,
         residual: bool = True,
         skip_scale: float = 1,
-        num_frames: int = 4, # WARN: hardcoded!
+        num_frames: int = 2, # WARN: hardcoded!
     ):
         super().__init__()
 

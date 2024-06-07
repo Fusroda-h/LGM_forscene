@@ -29,9 +29,9 @@ class Options:
     # camera far plane
     zfar: float = 2.5
     # number of all views (input + output)
-    num_views: int = 12
+    num_views: int = 6
     # number of views
-    num_input_views: int = 4
+    num_input_views: int = 2
     # camera radius
     cam_radius: float = 1.5 # to better use [-1, 1]^3 space
     # num workers
@@ -99,7 +99,7 @@ config_defaults['big'] = Options(
     batch_size=8,
     num_views=8,
     gradient_accumulation_steps=1,
-    mixed_precision='bf16',
+    mixed_precision='fp16',
 )
 
 config_doc['tiny'] = 'tiny model for ablation'
@@ -114,7 +114,7 @@ config_defaults['tiny'] = Options(
     batch_size=16,
     num_views=8,
     gradient_accumulation_steps=1,
-    mixed_precision='bf16',
+    mixed_precision='fp16',
 )
 
 AllConfigs = tyro.extras.subcommand_type_from_defaults(config_defaults, config_doc)

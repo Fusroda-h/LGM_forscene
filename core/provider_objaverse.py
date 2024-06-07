@@ -42,6 +42,7 @@ class ObjaverseDataset(Dataset):
         else:
             self.items = self.items[-self.opt.batch_size:]
         
+        # _fovy = np.rad2deg(2 * np.arctan(h/2*_intrin[0,0,1,1].item()))
         # default camera intrinsics
         self.tan_half_fov = np.tan(0.5 * np.deg2rad(self.opt.fovy))
         self.proj_matrix = torch.zeros(4, 4, dtype=torch.float32)
@@ -95,7 +96,6 @@ class ObjaverseDataset(Dataset):
             c2w[1] *= -1
             c2w[[1, 2]] = c2w[[2, 1]]
             c2w[:3, 1:3] *= -1 # invert up and forward direction
-
             # scale up radius to fully use the [-1, 1]^3 space!
             c2w[:3, 3] *= self.opt.cam_radius / 1.5 # 1.5 is the default scale
           

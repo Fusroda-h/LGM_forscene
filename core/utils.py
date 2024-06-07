@@ -20,7 +20,10 @@ def get_rays(pose, h, w, fovy, opengl=True):
     cx = w * 0.5
     cy = h * 0.5
 
+
+    # _fovy = np.rad2deg(2 * np.arctan(0.5*fy*h))
     focal = h * 0.5 / np.tan(0.5 * np.deg2rad(fovy))
+    # focal = 1 / fy
 
     camera_dirs = F.pad(
         torch.stack(

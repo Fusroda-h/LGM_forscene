@@ -246,4 +246,4 @@ with block:
         label='Text-to-3D Examples'
     )
     
-block.launch(server_name="0.0.0.0", share=False)
+block.launch(server_name="0.0.0.0", share=True)

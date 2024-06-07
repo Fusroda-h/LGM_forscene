@@ -26,3 +26,8 @@ kiui >= 0.2.3
 xatlas
 roma
 plyfile
+# added
+jaxtyping
+dacite
+lightning
+omegaconf
